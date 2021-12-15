@@ -5,20 +5,24 @@ import { useState } from 'react';
 
 function App() {
   const [pokemon, setPokemon] = useState();
+  const regexForPokemon = new RegExp("[A-Za-z]+");
+  const regexForId = new RegExp("(\\b([0-9]{3})\\b)");
   
   function handleForm(evento){
     evento.preventDefault();
-    
-    console.log(evento.target.id.value);
-    
+        
+    var testRegex;
+
     const pokemonId = evento.target.id.value;
-    if(pokemonId){
+    testRegex = regexForId.test(pokemonId);
+    if(pokemonId && testRegex){
       doFetch(pokemonId);
       return;
     }
 
     const pokemonName = evento.target.name.value;
-    if(pokemonName){
+    testRegex = regexForPokemon.test(pokemonName);
+    if(pokemonName && testRegex){
       doFetch(pokemonName);
       return;
     }
