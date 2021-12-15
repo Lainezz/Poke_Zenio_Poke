@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+.caja {
+  border-radius: 10%;
+  overflow: hidden;
+  border: 3px solid black;
+}
+
 .yellow {
   background-color: yellow;
 }
